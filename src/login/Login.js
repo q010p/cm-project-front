@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import ReactDOM from 'react-dom';
-
+import {Redirect} from 'react-router'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Alert, Card, FormControl, Button, Container, Row, Col } from 'react-bootstrap';
@@ -8,7 +7,7 @@ import './Login.css'
 
 import { useTranslation } from 'react-i18next';
 
-import FieldAgent from '../field-agent/FieldAgent'
+
 
 import ls from 'local-storage'
 import lsKey from '../data/LocalStorageKeys'
@@ -19,6 +18,8 @@ export default function Login(props) {
 
     const [requestBody, setRequestBody] = useState({})
     const [errorText, setErrorText] = useState("")
+    const [redirect, setRedirect] = useState("")
+
 
     function onFormFieldChange(e) {
         setRequestBody({
@@ -43,25 +44,8 @@ export default function Login(props) {
             .then((result => {
                 ls.set(lsKey.LS_AUTH_TOKEN_KEY, result.token)
                 ls.set(lsKey.LS_ROLE_KEY, result.role)
-                switch(result.role){
-                    case "FIELD_AGENT":
-                        ReactDOM.render(
-                            <FieldAgent />
-                            , document.getElementById('root'));
-                    break;
-                    case "ADMIN":
-
-                    
-                    break;
-                    case "CONTROL_CENTER_AGENT":
-
-                    break;
-
-                    
-
-                    default:
-                            break;
-                }
+                setRedirect('/admin')
+                
             }))
             .catch(err => {
                 err.json().then(errorBody => {
@@ -74,7 +58,13 @@ export default function Login(props) {
         setErrorText(errorBody.message)
     }
 
-
+    if (redirect) {
+        return <Redirect to={redirect} />;
+    }
+    
+    if(ls.get(lsKey.LS_AUTH_TOKEN_KEY)&&
+    ls.get(lsKey.LS_ROLE_KEY))
+    setRedirect('/admin')
 
     //i18n.changeLanguage('fa')    
     return (

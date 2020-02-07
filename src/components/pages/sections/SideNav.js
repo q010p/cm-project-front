@@ -20,11 +20,11 @@ const SideNavigation = () => {
                 <NavLink className="App-sidenav-active-class" to="/admin/dashboard">
                     <p className="App-sidenav-link-inside">dashboard</p>
                 </NavLink>
+                <NavLink className="" to="/admin/forms">
+                    <p className="App-sidenav-link-inside">forms</p>
+                </NavLink> 
                 <NavLink className="" to="/admin/profile">
                     <p className="App-sidenav-link-inside">profile</p>
-                </NavLink> 
-                <NavLink className="" to="/admin/time">
-                    <p className="App-sidenav-link-inside">time</p>
                 </NavLink>
             </div>
         </div>

@@ -10,7 +10,7 @@ import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 export function LocationTypeField(props) {
     const [markerPosition, setMarkerPosition] = React.useState(props.initialCenter)
     return (
-        <div style={{ position: 'relative', height: '40vh',minWidth:'60vh', maxWidth: '80vh' }}>
+        <div style={{ position: 'relative', height: '40vh',minWidth:'40vh', maxWidth: '80vh' }}>
             <Map
                 onClick={mapOnClick}
                 google={props.google}

@@ -8,6 +8,9 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import { makeStyles } from "@material-ui/core/styles";
+import ls from 'local-storage'
+import lsKey from '../../data/LocalStorageKeys'
+import { Redirect } from 'react-router'
 
 const useStyles = makeStyles(theme => ({
     formControl: {
@@ -46,7 +49,11 @@ function DynamicForm(props) {
     const [requestBody, setRequestBody] = useState({})
     useEffect(() => {
         setPageState(PAGE_STATE_LOADING)
-        fetch(`http://localhost:4020/api/forms/${props.formId}`)
+        fetch(`http://localhost:4020/api/forms/${props.formId}`, {
+            headers: {
+                'Authorization': "token " + ls.get(lsKey.LS_AUTH_TOKEN_KEY)
+            }
+        })
             .then(res => res.json())
             .then((result => {
                 setResultForm(result)
@@ -129,9 +136,13 @@ function DynamicForm(props) {
     function onFormSubmit(e) {
         e.preventDefault();
         console.log(JSON.stringify(requestBody))
+        requestBody.formId = props.formId
         fetch(`http://localhost:4020/api/forms/answer`, {
             method: 'post',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization':"token "+ls.get(lsKey.LS_AUTH_TOKEN_KEY)
+            },
             body: JSON.stringify(requestBody)
         })
             .then(res => res.json())
