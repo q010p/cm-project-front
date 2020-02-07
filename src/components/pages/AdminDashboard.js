@@ -33,7 +33,7 @@ function AdminDashboard(props) {
             <SideNav />
             <div className="App-admin-dash-container">
                 <Switch>
-                    <Route exact path="/admin/f/dashboard" component={Dash} />
+                    <Route exact path="/admin/dashboard" component={Dash} />
                     <Route exact path="/admin/forms" component={FieldAgentFroms} />
                     <Route exact path="/admin/profile" component={Login} />
                 </Switch>
