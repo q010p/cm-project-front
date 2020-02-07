@@ -2,12 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import Splash from './splash/Splash';
 import i18n from './i18n';
+
+import { BrowserRouter } from 'react-router-dom';
+import App from './App'
+
 
 
 ReactDOM.render(
-    <Splash />
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>
     , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
