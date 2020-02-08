@@ -39,8 +39,8 @@ const SideNavigation = () => {
                 <NavLink to="/admin/users">
                     <p className="App-sidenav-link-inside">users</p>
                 </NavLink>
-                <NavLink to="/admin/users">
-                    <p className="App-sidenav-link-inside">users</p>
+                <NavLink to="/admin/sys-admin/form">
+                    <p className="App-sidenav-link-inside">manage forms</p>
                 </NavLink>
             </div>
         </div>

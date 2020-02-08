@@ -11,6 +11,7 @@ import ls from 'local-storage'
 import lsKey from '../../data/LocalStorageKeys'
 import {Redirect} from 'react-router'
 import TopNav from './sections/TopNav'
+import SystemAdminCreateForm from '../pages/sections/admin/system-admin/SystemAdminCreateForm'
 
 
 //styles
@@ -38,6 +39,7 @@ function AdminDashboard(props) {
                     <Route exact path="/admin/dashboard" component={Dash} />
                     <Route exact path="/admin/forms" component={FieldAgentFroms} />
                     <Route exact path="/admin/profile" component={Login} />
+                    <Route exact path="/admin/sys-admin/form" component={SystemAdminCreateForm}/>
                 </Switch>
 
             </div>

@@ -14,7 +14,7 @@ import lsKey from '../data/LocalStorageKeys'
 
 export default function Login(props) {
 
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     const [requestBody, setRequestBody] = useState({})
     const [errorText, setErrorText] = useState("")
