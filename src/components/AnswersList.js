@@ -93,6 +93,21 @@ export default function AnswersList(props) {
         )
     }
 
+    function renderFilterList(){
+        
+    }
 
-    return renderAnswersList();
+
+    return (
+
+        <div>
+            {
+
+            }
+            {
+                renderAnswersList()
+            }
+        </div>
+
+    );
 }
