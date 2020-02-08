@@ -10,6 +10,7 @@ import FieldAgentFroms from './sections/admin/field-agent/FieldAgentForms'
 import ls from 'local-storage'
 import lsKey from '../../data/LocalStorageKeys'
 import {Redirect} from 'react-router'
+import TopNav from './sections/TopNav'
 
 
 //styles
@@ -31,6 +32,7 @@ function AdminDashboard(props) {
     return (
         <div>
             <SideNav />
+            <TopNav/>
             <div className="App-admin-dash-container">
                 <Switch>
                     <Route exact path="/admin/dashboard" component={Dash} />

@@ -60,7 +60,7 @@ function DynamicForm(props) {
                 setPageState(PAGE_STATE_LOADED)
             }))
     }, [apiCallCount])
-    const initialPosition = { lat: 35.717752, lng: 51.370039 }
+    const initialPosition = { lat: 35.717752, long: 51.370039 }
 
 
     function renderFormSwitch(field) {
@@ -122,7 +122,7 @@ function DynamicForm(props) {
             }
     }
     function getMarkerPositionKeyState(fieldName) {
-        return `${fieldName}MarkerPosition`
+        return `${fieldName}`
     }
 
     function onChangeFormField(e) {
@@ -143,7 +143,7 @@ function DynamicForm(props) {
                 'Content-Type': 'application/json',
                 'Authorization':"token "+ls.get(lsKey.LS_AUTH_TOKEN_KEY)
             },
-            body: JSON.stringify(requestBody)
+            body: JSON.stringify({...requestBody,...markerPosition})
         })
             .then(res => res.json())
             .then((result => {

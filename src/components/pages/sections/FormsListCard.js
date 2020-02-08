@@ -10,10 +10,10 @@ import logo from '../../../logo.svg'
 
 function FormsCard(props) {
 
-    const [formModalShow,setFormModalShow]  = useState(false)
-    const [formId,setFormId] = useState(0)
+    const [formModalShow, setFormModalShow] = useState(false)
+    const [formId, setFormId] = useState(0)
 
-    function onFormItemClicked(id){
+    function onFormItemClicked(id) {
         setFormModalShow(true)
         setFormId(id)
     }
@@ -22,14 +22,13 @@ function FormsCard(props) {
 
     return (
         <div>
-            <Card >
+            <Card className="card">
                 <Card.Body>
                     <Card.Title>forms list</Card.Title>
                     <FormList onFormClicked={onFormItemClicked} />
-                    <Button variant="primary">Go somewhere</Button>
                 </Card.Body>
             </Card>
-            <Modal size="lg" show={formModalShow} onHide={handleClose}>
+            <Modal size="md" show={formModalShow} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Modal heading</Modal.Title>
                 </Modal.Header>
@@ -37,8 +36,8 @@ function FormsCard(props) {
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose} >
                         Close
-          </Button>
-                    
+                    </Button>
+
                 </Modal.Footer>
             </Modal>
         </div>

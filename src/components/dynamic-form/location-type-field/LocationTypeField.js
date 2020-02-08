@@ -27,7 +27,7 @@ export function LocationTypeField(props) {
         </div>
     );
     function mapOnClick(mapProps, map, clickEvent) {
-        const newPosition = { lat: clickEvent.latLng.lat(), lng: clickEvent.latLng.lng() };
+        const newPosition = { lat: clickEvent.latLng.lat(), long: clickEvent.latLng.lng() };
         setMarkerPosition(newPosition)
         if (props.onMarkerChanged !== undefined)
             props.onMarkerChanged(newPosition)

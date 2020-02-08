@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch,Redirect } from 'react-router-dom';
 
 //components
 import AdminDashboard from './components/pages/AdminDashboard'
@@ -16,6 +16,7 @@ function App() {
       <Switch>
         <Route path="/admin" component={AdminDashboard} />
         <Route path="/login" component={Login} />
+        <Route exact path="/" render={() => (<Redirect to="/login" />)} />          
       </Switch>
     </main>
   )
